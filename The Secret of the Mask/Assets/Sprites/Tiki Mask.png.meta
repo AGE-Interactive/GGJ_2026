@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tiki Mask_0
+      name: TopLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -118,7 +118,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -132,7 +132,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_1
+      name: TopCentre
       rect:
         serializedVersion: 2
         x: 200
@@ -140,7 +140,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -154,7 +154,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_2
+      name: TopRight
       rect:
         serializedVersion: 2
         x: 400
@@ -162,7 +162,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_3
+      name: MiddleLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -184,7 +184,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -198,15 +198,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_4
+      name: MiddleCentre
       rect:
         serializedVersion: 2
-        x: 200
-        y: 200
+        x: 201
+        y: 201
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_5
+      name: MiddleRight
       rect:
         serializedVersion: 2
         x: 400
@@ -228,7 +228,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -242,7 +242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_6
+      name: BottomLeft
       rect:
         serializedVersion: 2
         x: 0
@@ -250,7 +250,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_7
+      name: BottomCentre
       rect:
         serializedVersion: 2
         x: 200
@@ -272,7 +272,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -286,7 +286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiki Mask_8
+      name: BottomRight
       rect:
         serializedVersion: 2
         x: 400
@@ -294,7 +294,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -321,15 +321,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tiki Mask_0: -1268421113
-      Tiki Mask_1: -426396949
-      Tiki Mask_2: -1953999569
-      Tiki Mask_3: -2074306501
-      Tiki Mask_4: -233093947
-      Tiki Mask_5: 2123323411
-      Tiki Mask_6: 1153921976
-      Tiki Mask_7: 2114634677
-      Tiki Mask_8: -1263236163
+      BottomCentre: 2114634677
+      BottomLeft: 1153921976
+      BottomRight: -1263236163
+      MiddleCentre: -233093947
+      MiddleLeft: -2074306501
+      MiddleRight: 2123323411
+      TopCentre: -426396949
+      TopLeft: -1268421113
+      TopRight: -1953999569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
