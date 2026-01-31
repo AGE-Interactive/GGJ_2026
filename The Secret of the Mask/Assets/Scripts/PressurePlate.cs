@@ -29,16 +29,6 @@ public class PressurePlate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!enabled)
-        {
-            /*RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f, maskLayer))
-            {
-                Debug.Log("Pressure plate activated by " + hit.collider.name);
-                // Add logic for when the pressure plate is activated
-                CheckMask(hit.transform.GetComponent<MaskCubesSprites>().maskType);
-            }*/
-        }
     }
 
     void CheckMask(MaskCubesSprites.MaskType mask)
@@ -47,6 +37,7 @@ public class PressurePlate : MonoBehaviour
         {
             spriteRenderer.color = Color.green;
             enabled = true;
+            FindFirstObjectByType<AudioManager>().CreateSound(AudioManager.audioType.PressurePlateActivated, transform.position);
         }
     }
 
@@ -60,8 +51,6 @@ public class PressurePlate : MonoBehaviour
     {
         if (!enabled && other.transform.tag == "Mask")
         {
-            Debug.Log("Pressure plate activated by " + other.transform.name);
-            // Add logic for when the pressure plate is activated
             CheckMask(other.transform.GetComponent<MaskCubesSprites>().maskType);
         }
     }

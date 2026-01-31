@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     bool isOnIce;
 
     Vector3 checkpoint;
+
+    [SerializeField] float iceSkatingSoundInterval;
+    float iceSkatingSoundTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
         if(isOnIce)
         {
             rb.AddForce(transform.forward * iceForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+            iceSkatingSoundTimer -= Time.fixedDeltaTime;
+            if(iceSkatingSoundTimer <= 0f)
+            {
+                FindFirstObjectByType<AudioManager>().CreateSound(AudioManager.audioType.IceSkating, transform.position);
+                iceSkatingSoundTimer = iceSkatingSoundInterval;
+            }
         }
         else
         {
