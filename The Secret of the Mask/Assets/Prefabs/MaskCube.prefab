@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 4927949570402756350}
   m_Layer: 6
   m_Name: MaskCube
-  m_TagString: Untagged
+  m_TagString: Mask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskSprite: {fileID: -1268421113, guid: 49a6c4acec622cd4fb51971703dc1824, type: 3}
+  maskType: 0
 --- !u!1 &6848457452610416669
 GameObject:
   m_ObjectHideFlags: 0
