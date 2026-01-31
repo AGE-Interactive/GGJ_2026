@@ -4,11 +4,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float iceForce;
     Rigidbody rb;
 
     float horizontalInput;
     float verticalInput;
-    float targetRotation;
+
+    bool isOnIce;
+
+    Vector3 checkpoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if(verticalInput != 0)
+        { 
+            MovePlayer();
+        }
     }
 
     void GetInput()
@@ -36,11 +43,48 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        rb.linearVelocity = (transform.forward * verticalInput * speed) * Time.fixedDeltaTime;
+        if(isOnIce)
+        {
+            rb.AddForce(transform.forward * iceForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+        }
+        else
+        {
+            rb.linearVelocity = (transform.forward * verticalInput * speed) * Time.fixedDeltaTime;
+        }
+        //rb.linearVelocity.magnitude = Mathf.Clamp(rb.linearVelocity.magnitude, -800, 800);
     }
 
     void RotatePlayer()
     {
         transform.Rotate(rotationSpeed * Vector3.up * horizontalInput * Time.deltaTime);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.transform.tag == "Ice")
+        {
+            isOnIce = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Checkpoint")
+        {
+            checkpoint = other.transform.position;
+        }
+        if (other.transform.tag == "DeathZone")
+        {
+            transform.position = checkpoint;
+            rb.linearVelocity = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Ice")
+        {
+            isOnIce = false;
+        }
     }
 }
