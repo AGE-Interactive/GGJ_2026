@@ -8,6 +8,7 @@ TagManager:
   - Ice
   - Checkpoint
   - DeathZone
+  - Lava
   layers:
   - Default
   - TransparentFX

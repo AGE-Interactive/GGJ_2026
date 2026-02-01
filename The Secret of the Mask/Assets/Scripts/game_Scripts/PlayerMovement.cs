@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float iceSkatingSoundInterval;
     float iceSkatingSoundTimer;
+
+    bool grounded;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +34,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(verticalInput != 0)
+        grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+
+        if (!grounded)
+        {
+            rb.AddForce(Physics.gravity * rb.mass);
+        }
+
+        if (verticalInput != 0 && grounded)
         { 
             MovePlayer();
         }
@@ -60,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = (transform.forward * verticalInput * speed) * Time.fixedDeltaTime;
         }
-        //rb.linearVelocity.magnitude = Mathf.Clamp(rb.linearVelocity.magnitude, -800, 800);
     }
 
     void RotatePlayer()
@@ -73,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
         if(other.transform.tag == "Ice")
         {
             isOnIce = true;
+        }
+        if(other.transform.tag == "Lava")
+        {
+            FindFirstObjectByType<Lava>().isGrowing = true;
         }
     }
 
@@ -94,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.tag == "Ice")
         {
             isOnIce = false;
+        }
+        if (other.transform.tag == "Lava")
+        {
+            FindFirstObjectByType<Lava>().isGrowing = false;
         }
     }
 }
