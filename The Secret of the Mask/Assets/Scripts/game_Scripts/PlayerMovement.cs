@@ -23,10 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     Transform maskCube;
 
+    [SerializeField] GameObject pullText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        pullText.SetActive(true);
     }
 
     // Update is called once per frame
@@ -97,16 +100,31 @@ public class PlayerMovement : MonoBehaviour
         if(other.transform.tag == "Ice")
         {
             isOnIce = true;
+            if (!FindFirstObjectByType<AudioManager>().iceAmbient.isPlaying)
+            {
+                FindFirstObjectByType<AudioManager>().iceAmbient.Play();
+            }
         }
         if(other.transform.tag == "Lava")
         {
             FindFirstObjectByType<Lava>().isGrowing = true;
+            if (!FindFirstObjectByType<AudioManager>().lavaAmbient.isPlaying)
+            {
+                FindFirstObjectByType<AudioManager>().lavaAmbient.Play();
+            }
+        }
+        if(other.transform.tag == "Laser")
+        {
+            if (!FindFirstObjectByType<AudioManager>().laserAmbient.isPlaying)
+            {
+                FindFirstObjectByType<AudioManager>().laserAmbient.Play();
+            }
         }
         if(other.transform.tag == "Mask")
         {
             maskInRange = true;
             maskCube = other.transform;
-            Debug.Log("Mask in range" );
+            pullText.SetActive(true);
         }
     }
 
@@ -128,14 +146,21 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.tag == "Ice")
         {
             isOnIce = false;
+            FindFirstObjectByType<AudioManager>().iceAmbient.Stop();
         }
         if (other.transform.tag == "Lava")
         {
             FindFirstObjectByType<Lava>().isGrowing = false;
+            FindFirstObjectByType<AudioManager>().lavaAmbient.Stop();
+        }
+        if (other.transform.tag == "Laser")
+        {
+            FindFirstObjectByType<AudioManager>().laserAmbient.Stop();
         }
         if (other.transform.tag == "Mask")
         {
             maskInRange = false;
+            pullText.SetActive(false);
         }
     }
 }

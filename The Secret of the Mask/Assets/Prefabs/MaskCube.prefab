@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 5335616727606550576}
   - component: {fileID: 4927949570402756350}
   - component: {fileID: -5741119802623709351}
+  - component: {fileID: 4941659901550576170}
   m_Layer: 6
   m_Name: MaskCube
   m_TagString: Mask
@@ -605,6 +606,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f551ea2f7797e5644b6f2067bf5259ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4941659901550576170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489125200443983915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1468270a9ddf92f409a87ebaa880cfb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundInterval: 2
 --- !u!1 &6848457452610416669
 GameObject:
   m_ObjectHideFlags: 0
