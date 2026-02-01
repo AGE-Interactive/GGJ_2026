@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     float iceSkatingSoundTimer;
 
     bool grounded;
+    bool maskInRange;
+    bool maskPulled;
+
+    Transform maskCube;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     {
         GetInput();
         RotatePlayer();
+        if(maskInRange && maskPulled)
+        {
+            PullMask();
+        }
     }
 
     private void FixedUpdate()
@@ -52,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
+        maskPulled = Input.GetKey(KeyCode.E);
     }
 
     void MovePlayer()
@@ -72,6 +81,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void PullMask()
+    {
+        Debug.Log("Mask pulled");
+        maskCube.GetComponent<Rigidbody>().AddForce((transform.position - maskCube.position).normalized * speed * 2f * Time.deltaTime, ForceMode.Acceleration);
+    }
+
     void RotatePlayer()
     {
         transform.Rotate(rotationSpeed * Vector3.up * horizontalInput * Time.deltaTime);
@@ -86,6 +101,12 @@ public class PlayerMovement : MonoBehaviour
         if(other.transform.tag == "Lava")
         {
             FindFirstObjectByType<Lava>().isGrowing = true;
+        }
+        if(other.transform.tag == "Mask")
+        {
+            maskInRange = true;
+            maskCube = other.transform;
+            Debug.Log("Mask in range" );
         }
     }
 
@@ -111,6 +132,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.tag == "Lava")
         {
             FindFirstObjectByType<Lava>().isGrowing = false;
+        }
+        if (other.transform.tag == "Mask")
+        {
+            maskInRange = false;
         }
     }
 }
