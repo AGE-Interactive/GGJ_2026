@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - DeathZone
   - Lava
+  - Laser
   layers:
   - Default
   - TransparentFX

@@ -13,8 +13,12 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] SoundType[] soundType;
     [SerializeField] AudioClip backgroundMusic;
-    [SerializeField] AudioSource musicSource;
+    public AudioSource musicSource;
     [SerializeField] GameObject audioObjectPrefab;
+
+    public AudioSource lavaAmbient;
+    public AudioSource iceAmbient;
+    public AudioSource laserAmbient;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,5 +67,6 @@ public class AudioManager : MonoBehaviour
         audioObjectSource.volume = sound.volume;
         audioObjectSource.pitch = sound.pitch;
         audioObjectSource.Play();
+        Destroy(audioObjectSource.gameObject, audioObjectSource.clip.length);
     }
 }
