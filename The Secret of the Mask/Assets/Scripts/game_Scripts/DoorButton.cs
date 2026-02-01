@@ -22,6 +22,7 @@ public class DoorButton : MonoBehaviour
             interactText.SetActive(false);
             door.open = true;
             FindFirstObjectByType<AudioManager>().CreateSound(AudioManager.audioType.Door, transform.position);
+            FindFirstObjectByType<AudioManager>().CreateSound(AudioManager.audioType.ButtonPress, transform.position);
         }
     }
 

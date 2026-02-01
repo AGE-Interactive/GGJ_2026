@@ -8,7 +8,8 @@ public class AudioManager : MonoBehaviour
         MoveBlock,
         PressurePlateActivated,
         MaskCompleted,
-        IceSkating
+        IceSkating,
+        ButtonPress
     }  
 
     [SerializeField] SoundType[] soundType;
@@ -57,6 +58,10 @@ public class AudioManager : MonoBehaviour
             case audioType.MaskCompleted:
                 audioObjectSource = Instantiate(audioObjectPrefab, soundLocation, Quaternion.identity).GetComponent<AudioSource>();
                 PlaySound(soundType[4], audioObjectSource);
+                break;
+            case audioType.ButtonPress:
+                audioObjectSource = Instantiate(audioObjectPrefab, soundLocation, Quaternion.identity).GetComponent<AudioSource>();
+                PlaySound(soundType[5], audioObjectSource);
                 break;
         }
     }

@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        pullText.SetActive(true);
+        pullText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
 
     void PullMask()
     {
-        Debug.Log("Mask pulled");
         maskCube.GetComponent<Rigidbody>().AddForce((transform.position - maskCube.position).normalized * speed * 2f * Time.deltaTime, ForceMode.Acceleration);
     }
 

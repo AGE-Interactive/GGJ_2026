@@ -1,10 +1,22 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PressurePlateManager : MonoBehaviour
 {
     bool maskCompleted = false;
     int activeMasks = 0;
     [SerializeField] Transform maskParent;
+
+    float restartTimer = 3f;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            activeMasks = 9;
+        }
+    }
 
     public void ActivatePlate()
     {
@@ -42,5 +54,13 @@ public class PressurePlateManager : MonoBehaviour
             maskParent.GetChild(i).transform.eulerAngles = new Vector3(0f, 0f, 0f);
             maskParent.GetChild(i).GetComponent<Rigidbody>().isKinematic = true;
         }
+
+        StartCoroutine(RestartLevel());
+    }
+
+    IEnumerator RestartLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
     }
 }
