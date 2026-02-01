@@ -26,17 +26,13 @@ public class PressurePlate : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void CheckMask(MaskCubesSprites.MaskType mask)
     {
         if(maskType.ToString() == mask.ToString())
         {
             spriteRenderer.color = Color.green;
             enabled = true;
+            GetComponentInParent<PressurePlateManager>().ActivatePlate();
             FindFirstObjectByType<AudioManager>().CreateSound(AudioManager.audioType.PressurePlateActivated, transform.position);
         }
     }
@@ -61,7 +57,7 @@ public class PressurePlate : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
             enabled = false;
+            GetComponentInParent<PressurePlateManager>().DeactivatePlate();
         }
-            // Optional: Logic for when the object leaves the pressure plate
     }
 }

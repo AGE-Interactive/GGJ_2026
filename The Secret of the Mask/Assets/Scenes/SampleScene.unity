@@ -6006,6 +6006,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 530d7f8ca46351f4c962fb802d4b1bdd, type: 3}
     volume: 1
     pitch: 1
+  - name: MaskCompleted
+    type: 3
+    clip:
+    - {fileID: 8300000, guid: bc74c4c1706032243b52b94a5522a0cb, type: 3}
+    volume: 1
+    pitch: 1
   backgroundMusic: {fileID: 8300000, guid: f3421237e1b458e4ba14d2d2f63534a5, type: 3}
   musicSource: {fileID: 330585548}
   audioObjectPrefab: {fileID: 5717336585500236822, guid: 50c842495ea5be14fbc3f486746cf9de, type: 3}
@@ -7375,6 +7381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082084102}
+  - component: {fileID: 1082084103}
   m_Layer: 0
   m_Name: PressurePlates
   m_TagString: Untagged
@@ -7406,6 +7413,19 @@ Transform:
   - {fileID: 1726644686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1082084103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082084101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4238e4a5284ad45affd03fff983e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskParent: {fileID: 1548242252}
 --- !u!1 &1092959436
 GameObject:
   m_ObjectHideFlags: 0
